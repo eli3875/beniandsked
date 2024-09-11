@@ -15,3 +15,34 @@ for i in range(line):
 
 for i in playerboard:
     print(i)
+
+pygame.init()
+X = 600
+Y = 600
+
+
+scrn = pygame.display.set_mode((X, Y))
+
+
+pygame.display.set_caption('image')
+
+
+imp = pygame.image.load("pixil-frame-0.png.png").convert()
+
+
+scrn.blit(imp, (0, 0))
+
+# paint screen one time
+pygame.display.flip()
+status = True
+while (status):
+
+
+    for i in pygame.event.get():
+
+
+        if i.type == pygame.QUIT:
+            status = False
+
+# deactivates the pygame library
+pygame.quit()
