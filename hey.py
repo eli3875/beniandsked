@@ -17,20 +17,20 @@ for i in playerboard:
     print(i)
 
 pygame.init()
-X = 600
-Y = 600
+X = col * 20
+Y = line * 20
 
+index_benni_row = 0
+index_benni_col = 0
 
 scrn = pygame.display.set_mode((X, Y))
 
-
+#beni
 pygame.display.set_caption('image')
+imp = pygame.image.load("pixil-frame-0.png").convert()
 
 
-imp = pygame.image.load("pixil-frame-0.png.png").convert()
-
-
-scrn.blit(imp, (0, 0))
+scrn.blit(imp, (index_benni_row, index_benni_col))
 
 # paint screen one time
 pygame.display.flip()
