@@ -55,6 +55,8 @@ while (working):
 
     if keys[pygame.K_DOWN]:
         index_benni_col += 1
+
+
     screen.fill("yellow")
     screen.blit(imp, (index_benni_row, index_benni_col))
     pygame.display.update()
