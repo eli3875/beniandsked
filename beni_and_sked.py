@@ -46,6 +46,8 @@ screen.blit(imp, (index_benni_row, index_benni_col))
 pygame.display.set_caption('shaked')
 imp_sked = pygame.image.load("sked.png").convert()
 imp_sked = pygame.transform.scale(imp_sked, (3 * 20, 4 * 20))
+
+
 #cotton
 cotton_list = []
 for cotton in range(20):
@@ -57,9 +59,29 @@ cotton_img = pygame.image.load("pixil-frame-0 (3).png")
 cotton_img = pygame.transform.scale(cotton_img, (3 * 20, 3 * 20))
 for w in playerboard:
     print(w)
+
+
+
 #bomb
 imp_bomb = pygame.image.load("pixil-frame-0 (1).png")
 imp_bomb = pygame.transform.scale(imp_bomb, (3 * 20, 1 * 20))
+
+
+
+#background
+background = pygame.image.load("background.png")
+background = pygame.transform.scale(background, (Y, X))
+
+
+#background(grey)
+background_grey = pygame.image.load("background(grey).png")
+background_grey = pygame.transform.scale(background_grey, (Y, X))
+
+
+
+#beni(grey)
+beni_grey = pygame.image.load("beni(grey).png")
+beni_grey = pygame.transform.scale(beni_grey, (player_size_x * 20, player_size_y * 20))
 
 
 working = True
@@ -131,13 +153,13 @@ while working:
             print("----")
 
         if keys[pygame.K_END]:
-            screen.fill("dark grey")
+            screen.blit(background_grey, (0,0))
             for rows in range(0, 1010, int(1010 / 50)):
                 for cols in range(0, 510, int(510 / 25)):
                     rect11 = pygame.Rect(0, 0, rows, cols)
 
                     pygame.draw.rect(screen, "black", rect11, 1)
-                    screen.blit(imp, (index_benni_col * 20, index_benni_row * 20))
+                    screen.blit(beni_grey, (index_benni_col * 20, index_benni_row * 20))
                     screen.blit(imp_sked, (940, 420))
                 for i in bomb_list:
                     screen.blit(imp_bomb, ((i[1] * 1000 / 50),i[0] * 500/25))
@@ -145,7 +167,7 @@ while working:
                 pygame.display.update()
             time.sleep(1)
             pygame.display.update()
-        screen.fill("dark green")
+        screen.blit(background, (0, 0))
         screen.blit(imp, (index_benni_col * 20, index_benni_row * 20))
         screen.blit(imp_sked, (940, 420))
         for i in cotton_list:
