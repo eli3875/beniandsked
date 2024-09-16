@@ -1,0 +1,19 @@
+import json
+        data = {
+            'benicol': index_benni_col,
+            'benirow': index_benni_row,
+            'player_board_pos': playerboard,
+        }
+
+        if keys[pygame.K_0]:
+            file = open("data_jason.txt", "w")
+            json.dump(data, file)
+
+        if keys[pygame.K_1]:
+            file = open("data_jason.txt", "r")
+            game_state = json.load(file)
+            index_benni_col = game_state['benicol']
+            index_benni_row = game_state['benirow']
+            playerboard = game_state['player_board_pos']
+
+        pygame.display.update()
